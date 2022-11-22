@@ -1,0 +1,38 @@
+#! /bin/bash
+
+videoext=".mkv"
+subsext=".mkv"
+
+mp4count=`ls -1 *.mp4 2>/dev/null | wc -l`
+avicount=`ls -1 *.avi 2>/dev/null | wc -l`
+asscount=`ls -1 *.ass 2>/dev/null | wc -l`
+srtcount=`ls -1 *.srt 2>/dev/null | wc -l`
+
+if [ $mp4count != 0 ]; 
+then
+  videoext=".mp4"
+elif [ $avicount != 0 ]; 
+then
+  videoext=".avi"
+fi
+
+if [ $asscount != 0 ]; 
+then
+  subsext=".ass"
+elif [ $srtcount != 0 ]; 
+then
+  subsext=".srt"
+fi
+
+
+for file in *$videoext ; do
+	if [ "$videoext" == "$subsext" ];
+	then
+	   subs2cia condense -i "${file}" \
+		   -p 150 -t 1000 -tl jpn --no-gen-subtitle
+	else
+	   subs2cia condense -i "${file}" \
+		   "${file%${videoext}}${subsext}" \
+		   -p 150 -t 1000 -tl jpn --no-gen-subtitle
+	fi
+done
