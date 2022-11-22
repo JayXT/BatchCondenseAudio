@@ -1,12 +1,12 @@
 # BatchCondenseAudio
 A bash script for GNU/Linux relying on subs2cia to extract and condense audio for all video files in the current directory.
 
-## Behavior:
+## Behavior
 The script goes over video files in the current directory, extracts and condenses audio from each using subs2cia utility.
 The video files type is selected based on first file extension detected: mkv, mp4, or avi.
 The subtitles are fetched from: ass files, srt files, or video files.
 
-## Prerequisites:
+## Prerequisites
 - [subs2cia](https://github.com/dxing97/subs2cia) has to be installed.
 - The script should be placed in some directory in the $PATH.
 - Execution rights have to be granted to the script file.
