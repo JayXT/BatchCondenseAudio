@@ -11,6 +11,11 @@ The subtitles are fetched from: ass files, srt files, or video files.
 - The script should be placed in some directory under the $PATH (in other words user should be able to call it from any directory in the terminal).
 - Execution rights have to be granted to the script file.
 
+## Limitations
+- All video files for condensing audio should have the same extension.
+- If built-in subtitles aren't provided, external subtitles should be present in the same directory.
+- External subtitles should have the same extension and their names should match the respective video files.
+
 ## Usage
 1. Open a terminal in the target directory that contains video files and optionally subtitles files, providing built-in subtitles aren't available.
 2. Run batch_condense_audio script.
